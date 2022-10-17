@@ -1,81 +1,18 @@
 <div class="card-container">
-  <div class="card">
+  <div *ngFor="let nombre of this.serverCharacters" class="card">
     <label for="">Name:</label>
-    <input type="text" [(ngModel)]="serverCharacters[0].name" disabled={{serverCharacters[0].editable}}>
-    <label for="">Strength:</label>
-    <input type="text" [(ngModel)]="serverCharacters[0].strength" disabled={{serverCharacters[0].editable}}>
-    <label for="">Agility:</label>
-    <input type="text" [(ngModel)]="serverCharacters[0].agility" disabled={{serverCharacters[0].editable}}>
-    <label for="">Intelligence:</label>
-    <input type="text" [(ngModel)]="serverCharacters[0].intelligence" disabled={{serverCharacters[0].editable}}>
-    <label for="">Life:</label>
-    <input type="text" [(ngModel)]="serverCharacters[0].life" disabled={{serverCharacters[0].editable}}>
-    <input type="button" (click)="txt=cambiarBoton(serverCharacters[0], txt)" [value]="serverCharacters[0].valorBoton">
-  </div>
-  <div class="card-container">
-    <div class="card">
-      <label for="">Name:</label>
-      <input type="text" [(ngModel)]="serverCharacters[1].name" disabled={{serverCharacters[1].editable}}>
-      <label for="">Strength:</label>
-      <input type="text" [(ngModel)]="serverCharacters[1].strength" disabled={{serverCharacters[1].editable}}>
-      <label for="">Agility:</label>
-      <input type="text" [(ngModel)]="serverCharacters[1].agility" disabled={{serverCharacters[1].editable}}>
-      <label for="">Intelligence:</label>
-      <input type="text" [(ngModel)]="serverCharacters[1].intelligence" disabled={{serverCharacters[1].editable}}>
-      <label for="">Life:</label>
-      <input type="text" [(ngModel)]="serverCharacters[1].life" disabled={{serverCharacters[1].editable}}>
-      <input type="button" value="Edit" (click)="txt=cambiarBoton(serverCharacters[1], txt)"
-        [value]="serverCharacters[1].valorBoton">
-    </div>
-    <div class="card-container">
-      <div class="card">
-        <label for="">Name:</label>
-        <input type="text" [(ngModel)]="serverCharacters[2].name" disabled={{serverCharacters[2].editable}}>
-        <label for="">Strength:</label>
-        <input type="text" [(ngModel)]="serverCharacters[2].strength" disabled={{serverCharacters[2].editable}}>
-        <label for="">Agility:</label>
-        <input type="text" [(ngModel)]="serverCharacters[2].agility" disabled={{serverCharacters[2].editable}}>
-        <label for="">Intelligence:</label>
-        <input type="text" [(ngModel)]="serverCharacters[2].intelligence" disabled={{serverCharacters[2].editable}}>
-        <label for="">Life:</label>
-        <input type="text" [(ngModel)]="serverCharacters[2].life" disabled={{serverCharacters[2].editable}}>
-        <input type="button" value="Edit" (click)="txt=cambiarBoton(serverCharacters[2], txt)"
-          [value]="serverCharacters[2].valorBoton">
-      </div>
-      <div class="card-container">
-        <div class="card">
-          <label for="">Name:</label>
-          <input type="text" [(ngModel)]="serverCharacters[3].name" disabled={{serverCharacters[3].editable}}>
-          <label for="">Strength:</label>
-          <input type="text" [(ngModel)]="serverCharacters[3].strength" disabled={{serverCharacters[3].editable}}>
-          <label for="">Agility:</label>
-          <input type="text" [(ngModel)]="serverCharacters[3].agility" disabled={{serverCharacters[3].editable}}>
-          <label for="">Intelligence:</label>
-          <input type="text" [(ngModel)]="serverCharacters[3].intelligence" disabled={{serverCharacters[3].editable}}>
-          <label for="">Life:</label>
-          <input type="text" [(ngModel)]="serverCharacters[3].life" disabled={{serverCharacters[3].editable}}>
-          <input type="button" value="Edit" (click)="txt=cambiarBoton(serverCharacters[3], txt)"
-            [value]="serverCharacters[3].valorBoton">
-        </div>
-        <div class="card-container">
-          <div class="card">
-            <label for="">Name:</label>
-            <input type="text" [(ngModel)]="serverCharacters[4].name" disabled={{serverCharacters[4].editable}}>
-            <label for="">Strength:</label>
-            <input type="text" [(ngModel)]="serverCharacters[4].strength" disabled={{serverCharacters[4].editable}}>
-            <label for="">Agility:</label>
-            <input type="text" [(ngModel)]="serverCharacters[4].agility" disabled={{serverCharacters[4].editable}}>
-            <label for="">Intelligence:</label>
-            <input type="text" [(ngModel)]="serverCharacters[4].intelligence" disabled={{serverCharacters[4].editable}}>
-            <label for="">Life:</label>
-            <input type="text" [(ngModel)]="serverCharacters[4].life" disabled={{serverCharacters[4].editable}}>
-            <input type="button" value="Edit" (click)="txt=cambiarBoton(serverCharacters[4], txt)"
-              [value]="serverCharacters[4].valorBoton">
-          </div>
-          <!-- Dentro del parágrafo va la información del Character que se está modifcando -->
-        </div>
-      </div>
-    </div>
+    <input type="text" [(ngModel)]="nombre.name" disabled={{nombre.editable}}>
+    <label *ngIf="nombre.mostrar" for="">Strength:</label>
+    <input *ngIf="nombre.mostrar" type="text" [(ngModel)]="nombre.strength" disabled={{nombre.editable}}>
+    <label *ngIf="nombre.mostrar" for="">Agility:</label>
+    <input *ngIf="nombre.mostrar" type="text" [(ngModel)]="nombre.agility" disabled={{nombre.editable}}>
+    <label *ngIf="nombre.mostrar" for="">Intelligence:</label>
+    <input *ngIf="nombre.mostrar" type="text" [(ngModel)]="nombre.intelligence" disabled={{nombre.editable}}>
+    <label *ngIf="nombre.mostrar" for="">Life:</label>
+    <input *ngIf="nombre.mostrar" type="text" [(ngModel)]="nombre.life" disabled={{nombre.editable}}>
+    <input *ngIf="nombre.mostrar" type="button" (click)="txt=cambiarBotonEdit(nombre, txt)"
+      [value]="nombre.valorBotonEdit">
+    <input type="button" (click)="txt=cambiarBotonShow(nombre, txt)" [value]="nombre.valorBotonShow">
   </div>
 </div>
 <p>
